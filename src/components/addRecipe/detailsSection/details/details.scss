@@ -1,0 +1,18 @@
+#meal-picker-grid {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.MuiGrid-item {
+    #servings {
+        max-width: 50px;
+    }
+
+    #recipeTime {
+        max-width: 100px;
+    }
+
+    #mealPicker {
+        min-width: 200px;
+    }
+}
