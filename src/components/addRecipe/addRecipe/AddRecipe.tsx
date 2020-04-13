@@ -1,6 +1,6 @@
 import { Button, Grid } from '@material-ui/core';
 import JoditEditor from 'jodit-react';
-import { Component, useRef } from 'react';
+import { Component } from 'react';
 import React from 'react';
 import firebase from '../../../firebase';
 import Details from '../detailsSection/details/Details';
@@ -62,9 +62,10 @@ export default class AddRecipe extends Component<{}, State> {
                     </Grid>
                     <Grid item>
                         <h2>RECIPE</h2>
+                        {/* Documentation: https://xdsoft.net/jodit/doc/ */}
                         <JoditEditor
                             value={this.state.content}
-                            config={{readonly: false}}
+                            config={{readonly: false, tabIndex: 0}}
                             onBlur={newContent => this.setState({ content: newContent })}
                         />
                     </Grid>
@@ -91,6 +92,7 @@ export default class AddRecipe extends Component<{}, State> {
         event.preventDefault();
         const recipesRef = firebase.database().ref('recipes');
         const recipe = {
+            content: this.state.content,
             ingredients: this.state.ingredients,
             meal: this.state.meal,
             servings: this.state.servings,
@@ -99,6 +101,7 @@ export default class AddRecipe extends Component<{}, State> {
         };
         recipesRef.push(recipe);
         this.setState({
+            content: '',
             ingredients: '',
             meal: '',
             recipeTime: '',

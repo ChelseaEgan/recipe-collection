@@ -1,9 +1,10 @@
 import { Container, createMuiTheme, ThemeProvider } from '@material-ui/core';
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import AddRecipe from '../addRecipe/addRecipe/AddRecipe';
 import { ErrorBoundary } from '../ErrorBoundary';
+import ListRecipes from '../listRecipes/listRecipes/ListRecipes';
 
 const myTheme = createMuiTheme({
     palette: {
@@ -23,15 +24,16 @@ const myTheme = createMuiTheme({
 });
 
 const Root = () => (
-    <Router>
+    <Container maxWidth='md'>
         <ThemeProvider theme={myTheme}>
             <ErrorBoundary>
-                <Container maxWidth='md'>
-                    <Route path='/' component={AddRecipe} />
-                </Container>
+                <Switch>
+                    <Route path='/add-recipe' component={AddRecipe} />
+                    <Route component={ListRecipes} />
+                </Switch>
             </ErrorBoundary>
         </ThemeProvider>
-    </Router>
+    </Container>
 );
 
 export default Root;

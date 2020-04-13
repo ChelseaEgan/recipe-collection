@@ -1,0 +1,17 @@
+.MuiListItem-root.list-item {
+    &.even {
+        background-color: rgba(0, 0, 0, 0.04);
+        &:hover {
+            background-color: transparent;
+        }
+    }
+
+    .list-item-name {
+        width: 75%;
+    }
+    
+    .MuiListItemText-root.list-item-meal {
+        display: flex;
+        justify-content: center;
+    }
+}

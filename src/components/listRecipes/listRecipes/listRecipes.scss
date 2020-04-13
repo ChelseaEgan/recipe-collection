@@ -1,0 +1,12 @@
+#list-header {
+    .recipe-list-heading {
+        .MuiTypography-root {
+            font-weight: bold;
+        }
+    
+        &#meal-heading {
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

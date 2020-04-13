@@ -1,12 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 import Root from './components/root/Root';
 import './styles/styles.scss';
 
 render(
-    <Root />,
+    <Router>
+        <Root />
+    </Router>,
     document.getElementById('root'),
 );
 
